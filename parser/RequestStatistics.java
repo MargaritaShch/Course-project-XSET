@@ -1,6 +1,6 @@
 package parser;
 
-// хранение и перебор
+//хранение и перебор
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,22 +22,22 @@ public class RequestStatistics {
         totalCalls++;
     }
 
-    //общее кол-ва вызовов
+    //общее кол-во вызовов
     public int getTotalCalls() {
         return totalCalls;
     }
 
-    // получение кол-ва вызовов для каждого метода
+    //получение кол-ва вызовов для каждого метода
     public Map<String, Integer> getMethodCounts() {
         return methodCounts;
     }
 
-    //спискок методов
+    //список методов
     public String[] getRelevantMethods() {
         return relevantMethods;
     }
 
-    //проверка,ярелевантен ли запрос 
+    //проверка, релевантен ли запрос
     public boolean isRelevantRequest(String methodPath) {
         for (String method : relevantMethods) {
             if (methodPath.equals(method)) {

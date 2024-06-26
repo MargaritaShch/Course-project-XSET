@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         String filePath = "logs/production_log.csv";
 
-        // методы из сваггера
+        //методы из сваггера
         String[] relevantMethods = {
             "POST /api/signDoc",
             "GET /api/sendMessage",
@@ -22,7 +22,7 @@ public class Main {
         // разбор лог-файла
         parser.parseLogFile(filePath);
 
-        //вывод статистики
+        //статистика
         RequestStatistics stats = parser.getStatistics();
         stats.printStatistics();
         stats.printRPS();

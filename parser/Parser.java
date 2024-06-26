@@ -10,7 +10,7 @@ import java.io.IOException;
 public class Parser {
     private RequestStatistics stats;
 
-    //конструктор  инициализации парсера
+    //конструктор инициализации парсера
     public Parser(String[] relevantMethods) {
         this.stats = new RequestStatistics(relevantMethods);
     }
@@ -19,7 +19,7 @@ public class Parser {
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             //хранение прочитанной строки
             String line;
-            //построчное чтение до конца
+            // построчное чтение до конца
             while ((line = br.readLine()) != null) {
                 //разделение строки по "~"
                 String[] parts = line.split("~");
@@ -32,6 +32,8 @@ public class Parser {
                         //методы и пути
                         String method = requestParts[0].replaceAll("\"", "").trim();
                         String path = requestParts[1].replaceAll("\"", "").trim();
+                        //удалить начиная с ? из пути
+                        path = path.split("\\?")[0];
 
                         //для /api/sendMessage часть до первого /
                         if (path.startsWith("/api/sendMessage/")) {
@@ -51,7 +53,7 @@ public class Parser {
         }
     }
 
-    //получение статистики
+    //статистика
     public RequestStatistics getStatistics() {
         return stats;
     }
