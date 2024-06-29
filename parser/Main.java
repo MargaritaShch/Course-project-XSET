@@ -10,11 +10,7 @@ public class Main {
             "GET /api/sendMessage",
             "GET /api/getMessage",
             "POST /api/addDoc",
-            "GET /api/getDocByName",
-            "GET /api/stopLeak",
-            "GET /api/stopCPULoad",
-            "GET /api/startLeak",
-            "GET /api/startCPULoad"
+            "GET /api/getDocByName"
         };
 
         //инициализация парсера
