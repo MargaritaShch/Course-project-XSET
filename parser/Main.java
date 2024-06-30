@@ -15,12 +15,18 @@ public class Main {
 
         //инициализация парсера
         Parser parser = new Parser(relevantMethods);
-        // разбор лог-файла
         parser.parseLogFile(filePath);
 
         //статистика
         RequestStatistics stats = parser.getStatistics();
         stats.printStatistics();
         stats.printRPS();
+
+        //расчет пикового часа
+        String peakHour = stats.getPeakHour();
+        if (peakHour != null) {
+            System.out.println("\nРасчет для пикового часа:");
+            stats.printPeakHourStatistics(peakHour);
+        }
     }
 }
